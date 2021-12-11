@@ -7,7 +7,7 @@
   
 **2) Project Test Cases**
 
-It is used the API Testing Heuristics called VADER:
+It is used the API Testing Heuristics called VADER to create Test Cases:
 
     Verbs
     Authorisation/Authentication
@@ -36,3 +36,8 @@ It is used the API Testing Heuristics called VADER:
 	 Download the "Product.postman_collection.json" collection
 	 Install newman and run:
 	 newman run Product.postman_collection.json
+	 
+
+## Issues
+
+1) There is no validation for id. It can be added more elements with same id what would cause inconsistency with the data.
