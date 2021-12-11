@@ -39,7 +39,7 @@ It is used the API Testing Heuristics called VADER to create Test Cases and iden
 6) It is possible to Post empty body in POST /Product (GET and POST for /Product works in the same way)
 7) It is possible to update empty body in PUT /Product (GET and PUT for /Product{id} works in the same way)
 8) It is possibe to update a product which does not exist
-9) Because it can be performed POST with empty values new items is registered which cannot be removed
+9) Because it can be performed POST with empty values new items is registered which cannot be removed by the api
 
 ### Consideration about Load Test
 
