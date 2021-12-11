@@ -24,18 +24,11 @@ It is used the API Testing Heuristics called VADER to create Test Cases and iden
 
 **4) Run the test:**
 
-	 Instal docker-compose
-	 Clone the following url: https://github.com/jehcriss42/QaCodeChallenge.git
-	 Run docker-compose up
-	 Access localhost:8080
-	 On jenkins:
-	 Run: Product
+	 Open collection with Postman and execute the test in the plataform
 
 **OR**
-
-	 Download the "Product.postman_collection.json" collection
 	 Install newman and run:
-	 newman run Product.postman_collection.json
+	 newman run Product.postman_collection.json -e Product.postman_environment.json
 	 
 
 ## Issues
