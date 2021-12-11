@@ -53,3 +53,4 @@ It is used the API Testing Heuristics called VADER to create Test Cases and iden
 ### Consideration about Load Test
 
 1) Because of the bugs with the endpoints load test could cause a huge inconsistency in the Database.
+2) For load test it would be interesting to have expectations of access to guarantee the services can respond properly in the same enviroment as production
