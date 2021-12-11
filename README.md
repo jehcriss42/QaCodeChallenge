@@ -27,10 +27,10 @@ It is used the API Testing Heuristics called VADER to create Test Cases and iden
 	 Open collection with Postman and execute the test in the plataform
 
 **OR**
+
 	 Install newman and run:
 	 newman run Product.postman_collection.json -e Product.postman_environment.json
 	 
-
 ## Issues
 
 1) There is no validation for id. It can be added more elements with same id what would cause inconsistency with the data.
