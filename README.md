@@ -7,7 +7,7 @@
   
 **2) Project Test Cases**
 
-It is used the API Testing Heuristics called VADER to create Test Cases:
+It is used the API Testing Heuristics called VADER to create Test Cases and identify issues:
 
     Verbs
     Authorisation/Authentication
