@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "d11fc712-34c7-4bee-bded-519eeca38125",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Price Engine",
+			"item": [
+				{
+					"name": "Product/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"    \"currency\": {\r",
+									"        \"type\": \"string\"\r",
+									"    },\r",
+									"    \"price\": {\r",
+									"        \"type\": \"int\"\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US"
+							}
+						],
+						"url": {
+							"raw": "{{PriceEngineUrl}}/product/string",
+							"host": [
+								"{{PriceEngineUrl}}"
+							],
+							"path": [
+								"product",
+								"string"
+							]
+						},
+						"description": "Price Engine"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Registered ",
+			"item": [
+				{
+					"name": "Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var id = JSON.parse(pm.variables.get(\"id\"));\r",
+									"\r",
+									"pm.test(\"Values is the same registered\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(id);\r",
+									"    pm.expect(jsonData.name).to.eql(\"T-Shirt\");\r",
+									"    pm.expect(jsonData.description).to.eql(\"cotton shirt\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \"id\": {{id}},  \"name\": \"T-Shirt\",  \"description\": \"cotton shirt\"}"
+						},
+						"url": {
+							"raw": "{{ProductUrl}}/product",
+							"host": [
+								"{{ProductUrl}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var id = JSON.parse(pm.variables.get(\"id\"));\r",
+									"\r",
+									"pm.test(\"Product id can be found\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].id).to.eql(id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ProductUrl}}/product",
+							"host": [
+								"{{ProductUrl}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update and delete Product",
+			"item": [
+				{
+					"name": "Product/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Same id is returned\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Shoes\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \"id\": \"string\",  \"name\": \"Shoes\",  \"description\": \"string\"}"
+						},
+						"url": {
+							"raw": "{{ProductUrl}}/product/{{idwhitoutquote}}",
+							"host": [
+								"{{ProductUrl}}"
+							],
+							"path": [
+								"product",
+								"{{idwhitoutquote}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var id = JSON.parse(pm.variables.get(\"id\"));\r",
+									"\r",
+									"pm.test(\"Same id is returned\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(id);\r",
+									"    pm.expect(jsonData.name).to.eql(\"Shoes\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{ProductUrl}}/product/{{idwhitoutquote}}",
+							"host": [
+								"{{ProductUrl}}"
+							],
+							"path": [
+								"product",
+								"{{idwhitoutquote}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ok response for delete\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.ok).to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{ProductUrl}}/product/{{idwhitoutquote}}",
+							"host": [
+								"{{ProductUrl}}"
+							],
+							"path": [
+								"product",
+								"{{idwhitoutquote}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
