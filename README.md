@@ -49,3 +49,7 @@ It is used the API Testing Heuristics called VADER to create Test Cases and iden
 7) It is possible to update empty body in PUT /Product (GET and PUT for /Product{id} works in the same way)
 8) It is possibe to update a product which does not exist
 9) Because it can be performed POST with empty values new items is registered which cannot be removed
+
+### Consideration about Load Test
+
+1) Because of the bugs with the endpoints load test could cause a huge inconsistency in the Database.
