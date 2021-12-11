@@ -18,9 +18,7 @@ It is used the API Testing Heuristics called VADER to create Test Cases and iden
 **3) Tecnologies:**
 
     Postman/Newman
-    javascript
-    Docker/Jenkins
-    
+    javascript    
 
 **4) Run the test:**
 
